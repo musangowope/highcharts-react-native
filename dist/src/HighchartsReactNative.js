@@ -223,6 +223,9 @@ export default class HighchartsReactNative extends React.PureComponent {
                         allowFileAccessFromFileURLs={true}
                         startInLoadingState = {this.props.loader}
                         style={this.props.webviewStyles}
+                        onLoad={this.props.onLoad}
+                        onError={this.props.onError}
+                        onHttpError={this.props.onHttpError}
                     />
                 </View>
             )
@@ -230,4 +233,11 @@ export default class HighchartsReactNative extends React.PureComponent {
             return <View></View>
         }
     }
+}
+
+
+HighchartsReactNative.defaultProps = {
+    onLoad: () => false,
+    onError: () => false,
+    onHttpError: () => false,
 }
